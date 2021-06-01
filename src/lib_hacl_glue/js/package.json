@@ -9,7 +9,7 @@
     "lint": "eslint test/test.js"
   },
   "dependencies": {
-    ""@nomadic-labs/hacl-wasm": "*"
+    "@nomadic-labs/hacl-wasm": "*"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

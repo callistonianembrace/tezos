@@ -16,6 +16,7 @@ depends: [
   "tezos-event-logging"
   "tezos-micheline"
   "tezos-rpc"
+  "bls12-381-unix"
   "ptime" { >= "0.8.4" }
   "ezjsonm" { >= "0.5.0" }
   "ipaddr" {>= "5.0.0" & < "6.0.0"}
