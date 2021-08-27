@@ -43,7 +43,6 @@
     "@opam/tezos-event-logging": "*",
     "@opam/tezos-p2p": "*",
     "@opam/tezos-snoop": "*",
-    "@opam/latex": "*",
     "@opam/tezos-client-base": "*",
     "@opam/tezos-p2p-services": "*",
     "@opam/tezos-protocol-functor-demo-noops": "*",
@@ -58,7 +57,6 @@
     "@opam/tezos-protocol-functor-genesis-carthagenet": "*",
     "@opam/tezos-client-genesis-carthagenet": "*",
     "@opam/tezos-shell-services": "*",
-    "@opam/tezos-test-services": "*",
     "@opam/tezos-version": "*",
     "@opam/tezos-workers": "*",
     "@opam/tezos-crypto": "*",
@@ -177,9 +175,9 @@
         }
       }
     },
-    "@opam/conduit-lwt-unix": "4.0.0",
+    "@opam/conduit-lwt-unix": "4.0.1",
     "@opam/hacl-star-raw": {
-      "source": "https://github.com/project-everest/hacl-star/releases/download/ocaml-v0.3.2/hacl-star.0.3.2.tar.gz#sha512:272070750040651742f81ee7ef64e4aab5421e65e5e66030341fb60cf134273f79f8cf81d75cc62056d523b184e75866e01a40d332b418c3a9071c4f87d21710",
+      "source": "https://github.com/project-everest/hacl-star/releases/download/ocaml-v0.4.1/hacl-star.0.4.1.tar.gz#sha512:2962724d9b0dbad0ce74bf8dd41a3efda9453a8cdec3e79c9d27f70d90d2252cbd57bf19128918628cdd4f011715b48abc211211ff3d65bf8f47c65c3fd6cc7c",
       "override": {
         "exportedEnv": {
           "DYLD_LIBRARY_PATH": {
@@ -291,7 +289,6 @@
     "@opam/tezos-event-logging": "./src/lib_event_logging/tezos-event-logging.opam",
     "@opam/tezos-p2p": "./src/lib_p2p/tezos-p2p.opam",
     "@opam/tezos-snoop": "./src/bin_snoop/tezos-snoop.opam",
-    "@opam/latex": "./src/bin_snoop/latex/latex.opam",
     "@opam/tezos-client-base": "./src/lib_client_base/tezos-client-base.opam",
     "@opam/tezos-p2p-services": "./src/lib_p2p_services/tezos-p2p-services.opam",
     "@opam/tezos-protocol-functor-demo-noops": "./src/proto_demo_noops/lib_protocol/tezos-protocol-functor-demo-noops.opam",
@@ -306,7 +303,6 @@
     "@opam/tezos-protocol-functor-genesis-carthagenet": "./src/proto_genesis_carthagenet/lib_protocol/tezos-protocol-functor-genesis-carthagenet.opam",
     "@opam/tezos-client-genesis-carthagenet": "./src/proto_genesis_carthagenet/lib_client/tezos-client-genesis-carthagenet.opam",
     "@opam/tezos-shell-services": "./src/lib_shell_services/tezos-shell-services.opam",
-    "@opam/tezos-test-services": "./src/lib_test_services/tezos-test-services.opam",
     "@opam/tezos-version": "./src/lib_version/tezos-version.opam",
     "@opam/tezos-workers": "./src/lib_workers/tezos-workers.opam",
     "@opam/tezos-crypto": "./src/lib_crypto/tezos-crypto.opam",
@@ -422,7 +418,25 @@
     "@opam/hacl-star-raw-empty": "./src/lib_hacl_glue/js/hacl-star-raw-empty.opam",
     "@opam/tezos-hacl-glue-js": "./src/lib_hacl_glue/js/tezos-hacl-glue-js.opam",
     "@opam/tezos-base": "./src/lib_base/tezos-base.opam",
-    "@opam/tezos-tooling": "./src/tooling/tezos-tooling.opam",
+    "@opam/tezos-tooling": {
+      "source": "./src/tooling/tezos-tooling.opam",
+      "override": {
+        "build": "dune build -p tezos-tooling",
+        "buildEnv": {
+          "CAML_LD_LIBRARY_PATH": "$CAML_LD_LIBRARY_PATH:#{@opam/ctypes.lib / 'ctypes'}:#{@opam/hacl-star-raw.lib / 'hacl-star-raw'}"
+        },
+        "dependencies": {
+          "@opam/ctypes": "*",
+          "@opam/coq-of-ocaml": "2.5.0",
+          "@opam/dune": "*",
+          "@opam/ocamlformat": "0.18.0",
+          "@opam/bisect_ppx": "*",
+          "@opam/tezos-base": "*",
+          "@opam/hacl-star-raw": "*",
+          "@opam/tezos-protocol-compiler": "*"
+        }
+      }
+    },
     "@opam/tezos-context": "./src/lib_context/tezos-context.opam",
     "@opam/tezos-codec": "./src/bin_codec/tezos-codec.opam",
     "@opam/staTz": "./vendors/statz/staTz.opam",
