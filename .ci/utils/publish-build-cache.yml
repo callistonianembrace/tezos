@@ -1,0 +1,53 @@
+# Steps for publishing project cache
+
+steps:
+  - bash: 'mkdir -p $(Build.StagingDirectory)'
+    displayName: '[Cache][Publish] Create cache directory'
+
+  # continueOnError because on windows it has a permission denied error but the
+  # export succeeds.
+  - script: "esy export-dependencies"
+    displayName: "esy export-dependencies"
+
+  - bash: "zip -r cache.zip _export && shasum -a 256 cache.zip | awk '{ print $1 }' > checksum.txt && mv checksum.txt cache.zip $(Build.StagingDirectory)"
+    displayName: "Computing sha256 of the zip"
+    condition: ne(variables['AGENT.OS'], 'Windows_NT')
+
+  - script: powershell.exe -nologo -noprofile -command "Compress-Archive -Path _export -DestinationPath cache.zip"
+    displayName: "[Windows] Zipping _export"
+    condition: eq(variables['AGENT.OS'], 'Windows_NT')
+
+  - script: "shasum -a 256 cache.zip | awk '{ print $1 }' > checksum.txt && mv checksum.txt cache.zip $(Build.StagingDirectory)"
+    displayName: "[Windows] Computing sha256"
+    condition: eq(variables['AGENT.OS'], 'Windows_NT')
+
+  - bash: pwd && ls _export/* && mv _export '$(Build.StagingDirectory)' && ls '$(Build.StagingDirectory)/_export/'
+    displayName: '[Cache][Publish] move export to staging dir'
+
+  # - bash: cd $ESY__CACHE_INSTALL_PATH && tar -czf $(Build.StagingDirectory)/esy-cache.tar .
+  #   workingDirectory: ''
+  #   condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'))
+  #   displayName: '[Cache][Publish] Tar esy cache directory'
+
+  # - bash: 'cd $(ESY__NPM_ROOT) && tar -czf $(Build.StagingDirectory)/npm-cache.tar .'
+  #   condition: and(succeeded(), eq(variables['Build.SourceBranch'], variables['System.PullRequest.TargetBranch']))
+  #   displayName: '[Cache][Publish] Tar npm cache directory'
+
+  - task: PublishBuildArtifacts@1
+    displayName: '[Cache][Publish] Upload tarball'
+    # TODO: The CI Build caches are pulled down by the last successful buildID
+    # for the target branch.
+    inputs:
+        pathToPublish: '$(Build.StagingDirectory)/cache.zip'
+        artifactName: 'cache-$(Agent.OS)-install-$(esy__ci_cache_version)'
+        parallel: true
+        parallelCount: 8
+
+
+  - task: PublishBuildArtifacts@1
+    displayName: '[Cache][Publish] Upload checksum'
+    inputs:
+        pathToPublish: '$(Build.StagingDirectory)/checksum.txt'
+        artifactName: 'cache-$(Agent.OS)-install-$(esy__ci_cache_version)-checksum'
+        parallel: true
+        parallelCount: 8
