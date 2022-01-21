@@ -2,7 +2,7 @@
  (name tezos_protocol_011_PtHangz2_parameters)
  (instrumentation (backend bisect_ppx))
  (public_name PtHangz2-parameters)
- (modules :standard \ gen)
+ (modules :standard \ gen config)
  (libraries tezos-base
             tezos-base.unix
             tezos-protocol-environment
@@ -13,12 +13,22 @@
 )
 
 (executable
+ (name config)
+ (modules config)
+ (libraries dune-configurator))
+
+(rule
+ (targets win32-flags.sexp)
+ (action (run ./config.exe)))
+
+(executable
  (name gen)
  (libraries tezos-base
             PtHangz2-parameters)
  (modules gen)
  (flags (:standard -open Tezos_base__TzPervasives
                    -open Tezos_protocol_011_PtHangz2_parameters
+         (:include win32-flags.sexp)
                    -linkall)))
 
 (rule
