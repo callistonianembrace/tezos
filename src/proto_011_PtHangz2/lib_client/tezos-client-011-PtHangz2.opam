@@ -15,7 +15,7 @@ depends: [
   "tezos-mockup-registration"
   "tezos-proxy"
   "tezos-signer-backends"
-  "tezos-protocol-011-PtHangz2-parameters"
+  "PtHangz2-parameters"
   "tezos-protocol-plugin-011-PtHangz2"
   "alcotest-lwt" { with-test & >= "1.1.0" }
   "tezos-test-helpers" { with-test }

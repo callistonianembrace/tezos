@@ -12,7 +12,7 @@ depends: [
   "tezos-shell-services"
   "tezos-protocol-environment"
   "tezos-protocol-011-PtHangz2"
-  "tezos-protocol-011-PtHangz2-parameters"
+  "PtHangz2-parameters"
   "tezos-client-011-PtHangz2"
   "tezos-test-helpers"
   "alcotest-lwt"

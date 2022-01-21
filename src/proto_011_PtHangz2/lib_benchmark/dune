@@ -5,7 +5,7 @@
  (libraries
   tezos-base
   tezos-protocol-011-PtHangz2
-  tezos-protocol-011-PtHangz2-parameters
+  PtHangz2-parameters
   tezos-micheline-rewriting
   tezos-benchmark
   tezos-benchmark-type-inference-011-PtHangz2

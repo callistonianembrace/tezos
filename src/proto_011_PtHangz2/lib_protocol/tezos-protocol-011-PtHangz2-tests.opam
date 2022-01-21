@@ -16,7 +16,7 @@ depends: [
   "tezos-stdlib-unix" { with-test }
   "tezos-protocol-environment" { with-test }
   "tezos-client-base" { with-test }
-  "tezos-protocol-011-PtHangz2-parameters" { with-test }
+  "PtHangz2-parameters" { with-test }
   "tezos-shell-services" { with-test }
   "tezos-base-test-helpers" { with-test }
   "tezos-benchmark" { with-test }
