@@ -2,7 +2,7 @@
  (name tezos_protocol_012_Psithaca_parameters)
  (instrumentation (backend bisect_ppx))
  (public_name tezos-protocol-012-Psithaca-parameters)
- (modules :standard \ gen)
+ (modules :standard \ gen config)
  (libraries tezos-base
             tezos-base.unix
             tezos-protocol-environment
@@ -20,7 +20,17 @@
  (flags (:standard -open Tezos_base__TzPervasives
                    -open Tezos_protocol_012_Psithaca_parameters
                    -open Tezos_protocol_012_Psithaca
+                   (:include win32-flags.sexp)
                    -linkall)))
+
+(executable
+ (name config)
+ (modules config)
+ (libraries dune-configurator))
+
+(rule
+ (targets win32-flags.sexp)
+ (action (run ./config.exe)))
 
 (rule
  (targets sandbox-parameters.json)
