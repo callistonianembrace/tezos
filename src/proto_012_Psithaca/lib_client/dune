@@ -10,7 +10,7 @@
             tezos-proxy
             tezos-rpc
             tezos-signer-backends
-            tezos-protocol-012-Psithaca-parameters
+            Psithaca-parameters
             tezos-protocol-plugin-012-Psithaca)
  (inline_tests)
  (preprocess (pps ppx_inline_test))

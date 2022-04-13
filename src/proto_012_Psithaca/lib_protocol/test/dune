@@ -17,7 +17,7 @@
             tezos-012-Psithaca-test-helpers
             tezos-stdlib-unix
             tezos-client-base
-            tezos-protocol-012-Psithaca-parameters
+            Psithaca-parameters
             tezos-base-test-helpers
             tezos-sapling
             astring
@@ -37,7 +37,7 @@
                    -open Tezos_base_test_helpers)))
 
 (rule
- (copy %{lib:tezos-protocol-012-Psithaca-parameters:test-parameters.json}
+ (copy %{lib:Psithaca-parameters:test-parameters.json}
        protocol_parameters.json))
 
 ; runs both `Quick and `Slow tests

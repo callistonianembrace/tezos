@@ -10,7 +10,7 @@ depends: [
   "tezos-base"
   "tezos-stdlib-unix"
   "tezos-protocol-012-Psithaca"
-  "tezos-protocol-012-Psithaca-parameters" {with-test}
+  "Psithaca-parameters" {with-test}
   "tezos-test-helpers" {with-test}
   "alcotest-lwt" {with-test}
   "qcheck-alcotest" {with-test}

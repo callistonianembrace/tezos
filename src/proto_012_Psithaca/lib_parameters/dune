@@ -1,7 +1,7 @@
 (library
  (name tezos_protocol_012_Psithaca_parameters)
  (instrumentation (backend bisect_ppx))
- (public_name tezos-protocol-012-Psithaca-parameters)
+ (public_name Psithaca-parameters)
  (modules :standard \ gen config)
  (libraries tezos-base
             tezos-base.unix
@@ -15,7 +15,7 @@
 (executable
  (name gen)
  (libraries tezos-base
-            tezos-protocol-012-Psithaca-parameters)
+            Psithaca-parameters)
  (modules gen)
  (flags (:standard -open Tezos_base__TzPervasives
                    -open Tezos_protocol_012_Psithaca_parameters

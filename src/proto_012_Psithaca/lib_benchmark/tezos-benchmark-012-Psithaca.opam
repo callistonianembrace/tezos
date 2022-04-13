@@ -13,7 +13,7 @@ depends: [
   "tezos-protocol-environment"
   "tezos-protocol-012-Psithaca"
   "tezos-012-Psithaca-test-helpers"
-  "tezos-protocol-012-Psithaca-parameters"
+  "Psithaca-parameters"
   "tezos-micheline-rewriting"
   "tezos-benchmark-type-inference-012-Psithaca"
   "hashcons"

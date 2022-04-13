@@ -5,7 +5,7 @@
  (libraries
   tezos-base
   tezos-protocol-012-Psithaca
-  tezos-protocol-012-Psithaca-parameters
+  Psithaca-parameters
   tezos-benchmark
   tezos-benchmark-012-Psithaca
   tezos-shell-benchmarks

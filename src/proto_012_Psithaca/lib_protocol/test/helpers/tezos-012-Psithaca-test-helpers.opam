@@ -12,7 +12,7 @@ depends: [
   "tezos-shell-services"
   "tezos-protocol-environment"
   "tezos-protocol-012-Psithaca"
-  "tezos-protocol-012-Psithaca-parameters"
+  "Psithaca-parameters"
   "tezos-client-012-Psithaca"
   "tezos-test-helpers"
   "alcotest-lwt"

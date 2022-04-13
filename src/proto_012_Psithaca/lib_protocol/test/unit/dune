@@ -8,7 +8,7 @@
             tezos-012-Psithaca-test-helpers
             tezos-stdlib-unix
             tezos-client-base
-            tezos-protocol-012-Psithaca-parameters
+            Psithaca-parameters
             tezos-base-test-helpers)
  (flags (:standard -open Tezos_base__TzPervasives
                    -open Tezos_base_test_helpers

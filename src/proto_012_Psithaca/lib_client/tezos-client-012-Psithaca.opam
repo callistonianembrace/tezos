@@ -15,7 +15,7 @@ depends: [
   "tezos-mockup-registration"
   "tezos-proxy"
   "tezos-signer-backends"
-  "tezos-protocol-012-Psithaca-parameters"
+  "Psithaca-parameters"
   "tezos-protocol-plugin-012-Psithaca"
   "alcotest-lwt" { with-test & >= "1.1.0" }
   "tezos-test-helpers" { with-test }

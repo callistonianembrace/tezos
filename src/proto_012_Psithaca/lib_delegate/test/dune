@@ -6,7 +6,7 @@
    tezos_baking_012_Psithaca
    tezos-baking-012-Psithaca.mockup-simulator
    tezos-base-test-helpers
-   tezos-protocol-012-Psithaca-parameters
+   Psithaca-parameters
    tezos-crypto
    alcotest-lwt)
  (flags (:standard -open Tezos_base__TzPervasives

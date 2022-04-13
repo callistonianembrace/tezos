@@ -11,7 +11,7 @@
             tezos-shell-services
             tezos-protocol-environment
             tezos-protocol-012-Psithaca
-            tezos-protocol-012-Psithaca-parameters
+            Psithaca-parameters
             tezos-client-012-Psithaca
             tezos-protocol-plugin-012-Psithaca)
  (flags (:standard -open Tezos_base__TzPervasives

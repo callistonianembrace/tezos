@@ -23,7 +23,7 @@ depends: [
   "lwt-canceler" { >= "0.3" & < "0.4" }
   "lwt-exit"
   "tezos-base-test-helpers" {with-test}
-  "tezos-protocol-012-Psithaca-parameters" {with-test}
+  "Psithaca-parameters" {with-test}
   "alcotest-lwt" {with-test}
 ]
 build: [

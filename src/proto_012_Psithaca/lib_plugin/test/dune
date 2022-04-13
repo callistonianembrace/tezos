@@ -6,7 +6,7 @@
             tezos-test-helpers
             qcheck-alcotest
             tezos-stdlib-unix
-            tezos-protocol-012-Psithaca-parameters
+            Psithaca-parameters
             tezos-protocol-plugin-012-Psithaca)
  (flags (:standard -open Tezos_base__TzPervasives
                    -open Tezos_micheline

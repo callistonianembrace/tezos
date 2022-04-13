@@ -13,7 +13,7 @@ depends: [
   "tezos-benchmark-012-Psithaca"
   "tezos-protocol-environment"
   "tezos-protocol-012-Psithaca"
-  "tezos-protocol-012-Psithaca-parameters"
+  "Psithaca-parameters"
   "tezos-shell-benchmarks"
   "tezos-micheline"
   "tezos-012-Psithaca-test-helpers"
